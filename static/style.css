@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#content {
+    margin-top: 50px;
+}
+
+#navbar {
+    background-color: rgb(144, 57, 57);
+    justify-content: space-between;
+    display: flex;
+    color: chocolate;
+    font-size: large;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+}
+
+#ulNavbar {
+    text-decoration: none;
+    list-style: none;
+    display: inline-flex;
+    padding-left: 30px;
+}
+
+.el {
+    padding: 20px 20px;
+}
+
+.el a {
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+#mainInput {
+    height: 30px;
+    justify-content: center;
+    margin-right: 50px;
+}

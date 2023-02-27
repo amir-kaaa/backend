@@ -1,39 +1,40 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 const port = 3000
 
+app.set('view engine', 'ejs');
 
-console.log(module)
-app.use((req, res, next) => {
-  console.log('request is sent')
-  next()
+app.get('/', (req, res) => {
+  res.render('index', { name: 'Slava' })
 })
 
-app.get('/', (req, res, next) => {
-  res.send('Hello World!')
+app.get('/education', (req, res) => {
+  res.render('index', { name: 'Amir' })
 })
 
-app.get('/:name', (req, res, next) => {
-  res.send('Hello World!')
-  const options = {
-    root: path.join(__dirname, 'public'),
-    dotfiles: 'deny',
-    headers: {
-      'x-timestamp': Date.now(),
-      'x-sent': true
-    }
-  }
-
-  const fileName = req.params.name
-  res.sendFile(fileName, options, (err) => {
-    if (err) {
-      next(err)
-    } else {
-      console.log('Sent:', fileName)
-    }
-  })
+app.get('/api/test', (req, res) => {
+  res.json({ name: 'Dalya' })
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.get('/api/test/2', (req, res) => {
+  res.set('Content-Type', 'application/json');
+  res.send(JSON.stringify({ name: 'Dalya' }))
 })
+
+app.get('/api/test/3', (req, res) => {
+  res.send('./static/pic.jpg')
+})
+
+app.use(express.static('static'))
+
+app.get('*', function (req, res) {
+  res.status(404).send('Not Found')
+});
+
+app.listen(port, (error) => {
+  if (!error)
+    console.log("Server is successfully running, app is listening on port " + port)
+  else
+    console.log("Error occurred, server can't start", error);
+});
