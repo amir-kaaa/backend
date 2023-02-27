@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div id="navbar">
+
+            <ul id="ulNavbar">
+                <li class="el"> <a href="/" onclick="route()">Home</a> </li>
+                <li class="el"> <a href="/education" onclick="route()">Education</a> </li>
+                <li class="el"> <a href="/contacts" onclick="route()">Contacts</a> </li>
+                <li class="el"> <a href="/about" onclick="route()">About</a> </li>
+            </ul>
+
+            <input id="mainInput" type="text">
+
+        </div>
+
+        <br>
+
+        <div id="content">
+            <button id="button">Load Data</button>
+            <%= name %>
+            <div id="data"></div>
+        </div>
+
+    </div>
+
+    <script defer src="app.js"></script>
+</body>
+
+</html>
